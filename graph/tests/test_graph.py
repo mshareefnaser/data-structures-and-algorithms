@@ -1,5 +1,5 @@
 import pytest
-from graph import Graph
+from graph.graph import Graph
 
 def test_add_vertex():
     """Test adding a vertex to the graph."""
@@ -15,7 +15,7 @@ def test_add_edge():
     graph.add_edge(vertex1, vertex2)
     neighbors = graph.get_neighbours(vertex1)
     assert len(neighbors) == 1
-    assert neighbors[0] == vertex2
+    assert neighbors[0][0] == vertex2
 
 def test_get_vertices():
     """Test retrieving all vertices from the graph."""
@@ -35,7 +35,7 @@ def test_get_neighbours():
     graph.add_edge(vertex1, vertex2)
     neighbors = graph.get_neighbours(vertex1)
     assert len(neighbors) == 1
-    assert neighbors[0] == vertex2
+    assert neighbors[0][0] == vertex2
 
 # def test_get_neighbours_with_weight():
 #     """Test retrieving neighbors with weights of a vertex in the graph."""
