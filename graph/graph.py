@@ -71,6 +71,8 @@ class Graph:
                     visited.add(child[0])
                     breadth.put(child[0])
         return nodes
+    def depth_first(self, vertex):
+        pass
     # def get_vertex(self, name):
     #     """get the whole vertex (as Node) from the vertex value"""
     #     v_list_nodes = self.get_vertices()
