@@ -78,3 +78,25 @@ def test_bfs():
     expected = ['Pandora', 'Arendelle', 'Metroville', 'Monstroplolis', 'Narnia', 'Naboo']
     assert actual == expected
 
+def test_dfs():
+    """Test depth-first traversal of the graph."""
+    g = Graph()
+    pandora = g.add_vertex('Pandora')
+    arendelle = g.add_vertex('Arendelle')
+    metroville = g.add_vertex('Metroville')
+    monstroplolis = g.add_vertex('Monstroplolis')
+    narnia = g.add_vertex('Narnia')
+    naboo = g.add_vertex('Naboo')
+
+    g.add_edge(pandora, arendelle)
+    g.add_edge(arendelle, metroville)
+    g.add_edge(arendelle, monstroplolis)
+    g.add_edge(metroville, monstroplolis)
+    g.add_edge(metroville, narnia)
+    g.add_edge(metroville, naboo)
+    g.add_edge(monstroplolis, naboo)
+    g.add_edge(narnia, naboo)
+
+    actual = g.depth_first(pandora)
+    expected = ['Pandora', 'Arendelle', 'Metroville', 'Monstroplolis', 'Naboo', 'Narnia']
+    assert actual == expected

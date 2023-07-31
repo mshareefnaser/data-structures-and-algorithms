@@ -1,6 +1,6 @@
-from graph.node import Node
+from node import Node
 from queue import Queue
-
+from stack_and_queue.stack import Stack
 class Edge:
     def __init__(self, vertex, wieght=0):
         """Initialize an edge with a vertex and optional wieght."""
@@ -70,6 +70,21 @@ class Graph:
                 if child[0] not in visited:
                     visited.add(child[0])
                     breadth.put(child[0])
+        return nodes
+    def depth_first(self, vertex):
+        """ Return: A collection of nodes in the order they were visited."""
+        nodes = []
+        depth = Stack()
+        visited = set()
+        depth.push(vertex)
+        visited.add(vertex)
+        while not depth.is_empty():
+            top = depth.pop()
+            nodes.append(top.value)
+            for child in self.adj_list[top]:
+                if child[0] not in visited:
+                    visited.add(child[0])
+                    depth.push(child[0])
         return nodes
     # def get_vertex(self, name):
     #     """get the whole vertex (as Node) from the vertex value"""
